@@ -25,8 +25,10 @@ export function dijkstra(graph, sourceNode) {
     let currentNodeIndex = sourceNodeIndex;
     while (checkForVisited(graph)) {
         let node = graph[currentNodeIndex];
-        if (node.hasBeenVisited()) { continue; } // Skip if the node has been visited
-        else { node.setVisited(); }
+
+        if (node == undefined) { return []; } // Return if not found
+        if (node.hasBeenVisited()) { continue; } // Skip if node was visited
+        else { node.setVisited(); } // Set current node to visited
 
         // Select unvisited edge w/ lowest weight
         let edges = node.getEdges();
@@ -51,24 +53,20 @@ export function dijkstra(graph, sourceNode) {
 }
 
 
+
+
 // Returns the index of the next node
-function nextNode(graph) {
+function nextNode(graph, weightsList) {
     let minWeight = Infinity;
     let minNodeIndex = -1;
 
-    for (let i = 0; i < graph.length; i++) {
-        let node = graph[i];
-        
-        for (let j = 0; j < graph.length; j++) {
-            let edge = node.getEdges()[j];
-
-            if (!node.hasBeenVisited() && edge < minWeight && edge != 0) {
-                minWeight = edge;
-                minNodeIndex = i;
-            }
+    for (let i = 0; i < weightsList.length; i++) {
+        if (!graph[i].hasBeenVisited() && weightsList[i] < minWeight) {
+            minWeight = weightsList[i];
+            minNodeIndex = i;
         }
     }
-    
+
     return minNodeIndex;
 }
 
