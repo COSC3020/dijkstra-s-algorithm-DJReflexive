@@ -19,7 +19,19 @@ The choice of data structures is up to you -- your implementation does not have
 to be the most efficient one, but please make sure that it is not unnecessarily
 inefficient.
 
-## Runtime Analysis
+# Runtime Analysis
 
 What is the big $\Theta$ complexity of your implementation? Add your
 answer, including your reasoning, to this markdown file.
+
+## My Runtime Analysis
+
+
+
+# Sources
+
+- None
+
+# Plagiarism Acknowledgment
+
+I certify that I have listed all sources used to complete this exercise, including the use of any Large Language Models. All of the work is my own, except where stated otherwise. I am aware that plagiarism carries severe penalties and that if plagiarism is suspected, charges may be filed against me without prior notice.
